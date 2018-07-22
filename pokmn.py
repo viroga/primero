@@ -1,37 +1,41 @@
-elegy_pokemon = input  ("¿Que Pokemon quieres combatir? (Squirtle / Charmander / Bulbasur)")
+elegy_pokemon = input  ("¿Contra que Pokemon quieres combatir? (Squirtle / Charmander / Bulbasur)")
 
-pikachu_ph = 100
+pikachu_hp = 100
 enemy_hp = 0
-
+pokemon_attack = 0
 
 if elegy_pokemon == "Squirtle":
     enemy_hp = 120
+    poke_name = "Squirtle"
+    pokemon_attack = 30
 
-if elegy_pokemon == "Charmander":
+elif elegy_pokemon == "Charmander":
     enemy_hp = 120
+    poke_name = "Charmander"
+    pokemon_attack = 35
 
-if elegy_pokemon   == "Bulbasur":
+elif elegy_pokemon == "Bulbasur":
     enemy_hp = 120
+    poke_name = "Bulbasur"
+    pokemon_attack = 40
 
-while   pikachu_ph > 0 and enemy_ph > 0:
+while   pikachu_hp > 0 and enemy_hp > 0:
     elegy_attack = input("Elige movimiento (Chispazo / Trueno)")
 
     if elegy_attack == "Chispazo":
         enemy_hp -= 30
-    if  elegy_attack  == "Trueno" :
+    elif  elegy_attack == "Trueno":
         enemy_hp -= 35
+    print ("Pokemon salvaje tiene ahora {}".format(enemy_hp, poke_name))
 
-    if elegy_pokemon == "Squirtle":
-        print ("Squirtle ha atacado")
-        pikachu_ph -= 30
+    print ("{} te hace un ataque desconocido de {} daño".format(poke_name,pokemon_attack))
+    pikachu_hp -= pokemon_attack
 
-    if elegy_pokemon == "Charmander":
-        print("Charmander ha atacado")
-        pikachu_ph -= 35
+    print ("La vida de tu Pikachu es de {}".format(pikachu_hp))
 
-    if elegy_pokemon == "Bulbasur":
-        print("Bulbasur ha atacado")
-        pikachu_ph -= 40
-
+if enemy_hp  <= 0:
+    print ("¡Has ganado!")
+if pikachu_hp <= 0:
+    print ("¡Se acabó!")
 
 print ("El combate ha terminado")
